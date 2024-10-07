@@ -7,13 +7,6 @@ application:
 		5xx: Error:Error5xx
 	mapping: App\UI\*\**Presenter
 
-
-database:
-	dsn: 'sqlite::memory:'
-	user:
-	password:
-
-
 latte:
 	strictTypes: yes
 	strictParsing: yes
