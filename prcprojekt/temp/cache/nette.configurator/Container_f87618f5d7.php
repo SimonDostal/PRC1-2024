@@ -1,14 +1,25 @@
 <?php
-// source: /home/filip_janca-uwu/web-projects/PRC1-2024/prcprojekt/config/common.neon
-// source: /home/filip_janca-uwu/web-projects/PRC1-2024/prcprojekt/config/services.neon
+// source: /root/PRC1-2024-1/prcprojekt/config/common.neon
+// source: /root/PRC1-2024-1/prcprojekt/config/services.neon
+// source: /root/PRC1-2024-1/prcprojekt/config/local.neon
 // source: array
 
 /** @noinspection PhpParamsInspection,PhpMethodMayBeStaticInspection */
 
 declare(strict_types=1);
 
-class Container_398bc5a78b extends Nette\DI\Container
+class Container_f87618f5d7 extends Nette\DI\Container
 {
+	protected array $tags = [
+		'nette.inject' => [
+			'application.1' => true,
+			'application.2' => true,
+			'application.3' => true,
+			'application.4' => true,
+			'application.5' => true,
+		],
+	];
+
 	protected array $aliases = [
 		'application' => 'application.application',
 		'cacheStorage' => 'cache.storage',
@@ -75,9 +86,10 @@ class Container_398bc5a78b extends Nette\DI\Container
 		'Nette\ComponentModel\IContainer' => [2 => ['application.2', 'application.3']],
 		'Nette\ComponentModel\IComponent' => [2 => ['application.2', 'application.3']],
 		'App\UI\Error\Error4xx\Error4xxPresenter' => [2 => ['application.2']],
-		'App\UI\Home\HomePresenter' => [2 => ['application.3']],
+		'App\UI\Character\CharacterPresenter' => [2 => ['application.3']],
 		'NetteModule\ErrorPresenter' => [2 => ['application.4']],
 		'NetteModule\MicroPresenter' => [2 => ['application.5']],
+		'App\Model\CharacterFacade' => [['02']],
 	];
 
 
@@ -90,6 +102,12 @@ class Container_398bc5a78b extends Nette\DI\Container
 	public function createService01(): Nette\Application\Routers\RouteList
 	{
 		return App\Core\RouterFactory::createRouter();
+	}
+
+
+	public function createService02(): App\Model\CharacterFacade
+	{
+		return new App\Model\CharacterFacade($this->getService('database.default.explorer'));
 	}
 
 
@@ -116,9 +134,9 @@ class Container_398bc5a78b extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__3(): App\UI\Home\HomePresenter
+	public function createServiceApplication__3(): App\UI\Character\CharacterPresenter
 	{
-		$service = new App\UI\Home\HomePresenter;
+		$service = new App\UI\Character\CharacterPresenter($this->getService('02'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -181,7 +199,7 @@ class Container_398bc5a78b extends Nette\DI\Container
 		$service = new Nette\Application\PresenterFactory(new Nette\Bridges\ApplicationDI\PresenterFactoryCallback(
 			$this,
 			5,
-			'/home/filip_janca-uwu/web-projects/PRC1-2024/prcprojekt/temp/cache/nette.application/touch',
+			'/root/PRC1-2024-1/prcprojekt/temp/cache/nette.application/touch',
 		));
 		$service->setMapping(['*' => 'App\UI\*\**Presenter']);
 		return $service;
@@ -190,7 +208,7 @@ class Container_398bc5a78b extends Nette\DI\Container
 
 	public function createServiceCache__storage(): Nette\Caching\Storage
 	{
-		return new Nette\Caching\Storages\FileStorage('/home/filip_janca-uwu/web-projects/PRC1-2024/prcprojekt/temp/cache');
+		return new Nette\Caching\Storages\FileStorage('/root/PRC1-2024-1/prcprojekt/temp/cache');
 	}
 
 
@@ -202,7 +220,12 @@ class Container_398bc5a78b extends Nette\DI\Container
 
 	public function createServiceDatabase__default__connection(): Nette\Database\Connection
 	{
-		$service = new Nette\Database\Connection('sqlite::memory:', null, null, []);
+		$service = new Nette\Database\Connection(
+			'mysql:host=127.0.0.1;dbname=rpg_character',
+			/*sensitive{*/'root'/*}*/,
+			/*sensitive{*/'root'/*}*/,
+			[],
+		);
 		Nette\Bridges\DatabaseTracy\ConnectionPanel::initialize(
 			$service,
 			true,
@@ -264,7 +287,7 @@ class Container_398bc5a78b extends Nette\DI\Container
 	{
 		return new class ($this) implements Nette\Bridges\ApplicationLatte\LatteFactory {
 			public function __construct(
-				private Container_398bc5a78b $container,
+				private Container_f87618f5d7 $container,
 			) {
 			}
 
@@ -272,16 +295,15 @@ class Container_398bc5a78b extends Nette\DI\Container
 			public function create(): Latte\Engine
 			{
 				$service = new Latte\Engine;
-				$service->setTempDirectory('/home/filip_janca-uwu/web-projects/PRC1-2024/prcprojekt/temp/cache/latte');
+				$service->setTempDirectory('/root/PRC1-2024-1/prcprojekt/temp/cache/latte');
 				$service->setAutoRefresh(true);
-				$service->setStrictTypes(true);
-				$service->setStrictParsing(true);
+				$service->setStrictTypes(false);
+				$service->setStrictParsing(false);
 				$service->enablePhpLinter(null);
 				$service->setLocale(null);
 				func_num_args() && $service->addExtension(new Nette\Bridges\ApplicationLatte\UIExtension(func_get_arg(0)));
 				$service->addExtension(new Nette\Bridges\CacheLatte\CacheExtension($this->container->getService('cache.storage')));
 				$service->addExtension(new Nette\Bridges\FormsLatte\FormsExtension);
-				$service->addExtension(new App\UI\Accessory\LatteExtension);
 				return $service;
 			}
 		};
@@ -385,5 +407,20 @@ class Container_398bc5a78b extends Nette\DI\Container
 				'send',
 			];
 		})();
+	}
+
+
+	protected function getStaticParameters(): array
+	{
+		return [
+			'appDir' => '/root/PRC1-2024-1/prcprojekt/app',
+			'wwwDir' => '/root/PRC1-2024-1/prcprojekt/www',
+			'vendorDir' => '/root/PRC1-2024-1/prcprojekt/vendor',
+			'rootDir' => '/root/PRC1-2024-1/prcprojekt',
+			'debugMode' => true,
+			'productionMode' => false,
+			'consoleMode' => false,
+			'tempDir' => '/root/PRC1-2024-1/prcprojekt/temp',
+		];
 	}
 }

@@ -1,0 +1,28 @@
+<h1>Seznam postav</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Jméno</th>
+            <th>Rasa</th>
+            <th>Třída</th>
+            <th>HP</th>
+            <th>Síla</th>
+            <th>Inteligence</th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $characters as $character}
+        <tr>
+            <td>{$character->id}</td>
+            <td>{$character->name}</td>
+            <td>{$character->race}</td>
+            <td>{$character->class}</td>
+            <td>{$character->hp}</td>
+            <td>{$character->strenght}</td>
+            <td>{$character->intelligence}</td>
+        </tr>
+    {/foreach}
+    </tbody>
+</table>

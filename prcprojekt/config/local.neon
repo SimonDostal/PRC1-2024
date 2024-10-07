@@ -4,3 +4,4 @@ database:
 	dsn: 'mysql:host=127.0.0.1;dbname=rpg_character'
 	user: root
 	password: root
+
