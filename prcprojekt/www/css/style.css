@@ -1,0 +1,85 @@
+body {
+    background-color: #2c3e50; /* Tmavé pozadí */
+    color: #ecf0f1; /* Světlejší barva textu */
+    font-family: 'Garamond', serif; /* Písmo stylizované na fantasy */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #34495e; /* Tmavě modré pozadí menu */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    color: #f39c12; /* Zlatá barva pro název */
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1; /* Světlejší barva pro odkazy */
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #f39c12; /* Zlaté pozadí při najetí myší */
+    color: #2c3e50; /* Tmavý text při najetí myší */
+}
+
+.alert {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+main {
+    background-color: #34495e; /* Stejné pozadí jako menu */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
+
+table {
+    width: 100%; /* Celá šířka kontejneru */
+    border-collapse: collapse; /* Sloučení okrajů buněk */
+    margin-top: 20px; /* Rozestup nad tabulkou */
+}
+
+thead {
+    background-color: #2980b9; /* Tmavě modré pozadí pro hlavičku tabulky */
+    color: #ecf0f1; /* Světlejší barva pro text v hlavičce */
+    font-weight: bold; /* Tučný text pro hlavičku */
+}
+
+th, td {
+    padding: 12px; /* Vnitřní okraje pro buňky */
+    text-align: center; /* Středění textu */
+    border: 1px solid #34495e; /* Rám kolem buněk */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #34495e; /* Alternující pozadí pro sudé řádky */
+}
+
+tbody tr:hover {
+    background-color: #f39c12; /* Změna pozadí nažloutlé při najetí myší */
+    color: #2c3e50; /* Tmavý text při najetí myší */
+}
+
+td {
+    color: #ecf0f1; /* Světlejší barva pro text v buňkách */
+}
