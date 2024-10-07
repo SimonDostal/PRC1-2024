@@ -12,12 +12,8 @@ class Container_398bc5a78b extends Nette\DI\Container
 	protected array $aliases = [
 		'application' => 'application.application',
 		'cacheStorage' => 'cache.storage',
-		'database.default' => 'database.default.connection',
-		'database.default.context' => 'database.default.explorer',
 		'httpRequest' => 'http.request',
 		'httpResponse' => 'http.response',
-		'nette.database.default' => 'database.default',
-		'nette.database.default.context' => 'database.default.explorer',
 		'nette.httpRequestFactory' => 'http.requestFactory',
 		'nette.latteFactory' => 'latte.latteFactory',
 		'nette.mailer' => 'mail.mailer',
@@ -34,12 +30,6 @@ class Container_398bc5a78b extends Nette\DI\Container
 		'Nette\Application\IPresenterFactory' => [['application.presenterFactory']],
 		'Nette\Application\LinkGenerator' => [['application.linkGenerator']],
 		'Nette\Caching\Storage' => [['cache.storage']],
-		'Nette\Database\Connection' => [['database.default.connection']],
-		'Nette\Database\IStructure' => [['database.default.structure']],
-		'Nette\Database\Structure' => [['database.default.structure']],
-		'Nette\Database\Conventions' => [['database.default.conventions']],
-		'Nette\Database\Conventions\DiscoveredConventions' => [['database.default.conventions']],
-		'Nette\Database\Explorer' => [['database.default.explorer']],
 		'Nette\Http\RequestFactory' => [['http.requestFactory']],
 		'Nette\Http\IRequest' => [['http.request']],
 		'Nette\Http\Request' => [['http.request']],
@@ -197,44 +187,6 @@ class Container_398bc5a78b extends Nette\DI\Container
 	public function createServiceContainer(): Nette\DI\Container
 	{
 		return $this;
-	}
-
-
-	public function createServiceDatabase__default__connection(): Nette\Database\Connection
-	{
-		$service = new Nette\Database\Connection('sqlite::memory:', null, null, []);
-		Nette\Bridges\DatabaseTracy\ConnectionPanel::initialize(
-			$service,
-			true,
-			'default',
-			true,
-			$this->getService('tracy.bar'),
-			$this->getService('tracy.blueScreen'),
-		);
-		return $service;
-	}
-
-
-	public function createServiceDatabase__default__conventions(): Nette\Database\Conventions\DiscoveredConventions
-	{
-		return new Nette\Database\Conventions\DiscoveredConventions($this->getService('database.default.structure'));
-	}
-
-
-	public function createServiceDatabase__default__explorer(): Nette\Database\Explorer
-	{
-		return new Nette\Database\Explorer(
-			$this->getService('database.default.connection'),
-			$this->getService('database.default.structure'),
-			$this->getService('database.default.conventions'),
-			$this->getService('cache.storage'),
-		);
-	}
-
-
-	public function createServiceDatabase__default__structure(): Nette\Database\Structure
-	{
-		return new Nette\Database\Structure($this->getService('database.default.connection'), $this->getService('cache.storage'));
 	}
 
 
