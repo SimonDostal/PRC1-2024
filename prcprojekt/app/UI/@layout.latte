@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{ifset $title}{include $title|stripHtml} | {/ifset}RPG Character Manager</title>
-    
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+
     <!-- Link to your custom CSS -->
     <link rel="stylesheet" href="{$basePath}/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <!-- Navigation Menu -->
-        <nav class="navbar">
-            <a class="navbar-brand" href="{$basePath}/">RPG Character Manager</a>
-            <ul class="navbar-nav">
-                <li><a class="nav-link" href="{$basePath}/character">Postavy</a></li>
-                <li><a class="nav-link" href="{$basePath}/inventory">Inventář</a></li>
-                <li><a class="nav-link" href="{$basePath}/about">O aplikaci</a></li>
-                <li><a class="nav-link" href="{$basePath}/contact">Kontakt</a></li>
-            </ul>
-        </nav>
+        <!-- Epic Title for RPG Website -->
+        <h1 class="epic-title">RPG Character Manager</h1>
+
+    
+       
 
         <!-- Flash messages -->
         <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}" role="alert">
