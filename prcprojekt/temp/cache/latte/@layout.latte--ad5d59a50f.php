@@ -2,10 +2,10 @@
 
 use Latte\Runtime as LR;
 
-/** source: /home/marinakt/PRC1-2024-4/prcprojekt/app/UI/@layout.latte */
-final class Template_0228df59c4 extends Latte\Runtime\Template
+/** source: /root/PRC1-2024-2/prcprojekt/app/UI/@layout.latte */
+final class Template_ad5d59a50f extends Latte\Runtime\Template
 {
-	public const Source = '/home/marinakt/PRC1-2024-4/prcprojekt/app/UI/@layout.latte';
+	public const Source = '/root/PRC1-2024-2/prcprojekt/app/UI/@layout.latte';
 
 	public const Blocks = [
 		['scripts' => 'blockScripts'],
@@ -57,23 +57,23 @@ final class Template_0228df59c4 extends Latte\Runtime\Template
                 <li><a class="nav-link" href="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 20 */;
 		echo '/inventory">Inventář</a></li>
-                <li><a class="nav-link" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 21 */;
-		echo '/about">O aplikaci</a></li>
-                <li><a class="nav-link" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 22 */;
-		echo '/contact">Kontakt</a></li>
+                <li><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Edit:create')) /* line 21 */;
+		echo '">Nová postava</a></li>
+                
+                
+
             </ul>
         </nav>
 
         <!-- Flash messages -->
 ';
-		foreach ($flashes as $flash) /* line 27 */ {
+		foreach ($flashes as $flash) /* line 29 */ {
 			echo '        <div class="alert alert-';
-			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 27 */;
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 29 */;
 			echo '" role="alert">
             ';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 28 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 30 */;
 			echo '
         </div>
 ';
@@ -84,12 +84,12 @@ final class Template_0228df59c4 extends Latte\Runtime\Template
         <!-- Main content -->
         <main>
 ';
-		$this->renderBlock('content', [], 'html') /* line 33 */;
+		$this->renderBlock('content', [], 'html') /* line 35 */;
 		echo '        </main>
     </div>
 
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 37 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 39 */;
 		echo '</body>
 </html>
 ';
@@ -101,7 +101,7 @@ final class Template_0228df59c4 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '27'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '29'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -109,7 +109,7 @@ final class Template_0228df59c4 extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 37 */
+	/** {block scripts} on line 39 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '    <!-- Nette Forms Script -->

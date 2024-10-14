@@ -2,10 +2,10 @@
 
 use Latte\Runtime as LR;
 
-/** source: /home/marinakt/PRC1-2024-4/prcprojekt/app/UI/Character/default.latte */
-final class Template_70aaa11219 extends Latte\Runtime\Template
+/** source: /root/PRC1-2024-2/prcprojekt/app/UI/Character/default.latte */
+final class Template_b150504ea2 extends Latte\Runtime\Template
 {
-	public const Source = '/home/marinakt/PRC1-2024-4/prcprojekt/app/UI/Character/default.latte';
+	public const Source = '/root/PRC1-2024-2/prcprojekt/app/UI/Character/default.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],
@@ -45,8 +45,7 @@ final class Template_70aaa11219 extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo ' 
-
+		echo '
 <h1 class="rpg-header">Seznam postav</h1>
 
 <table class="table table-dark table-striped rpg-table">
@@ -59,6 +58,7 @@ final class Template_70aaa11219 extends Latte\Runtime\Template
             <th>HP</th>
             <th>Síla</th>
             <th>Inteligence</th>
+            <th>Akce</th> <!-- Sloupec pro akce, jako je odstranění -->
         </tr>
     </thead>
     <tbody>
@@ -86,6 +86,17 @@ final class Template_70aaa11219 extends Latte\Runtime\Template
             <td>';
 			echo LR\Filters::escapeHtmlText($character->intelligence) /* line 27 */;
 			echo '</td>
+            <td>
+                <!-- Tlačítko pro úpravu -->
+                <a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Edit:create', ['id' => $character->id])) /* line 30 */;
+			echo '" class="btn btn-primary">Upravit</a>
+                
+                <!-- Tlačítko pro odstranění s použitím signálu handleDelete -->
+                <a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('delete!', ['id' => $character->id])) /* line 33 */;
+			echo '" class="btn btn-danger" onclick="return confirm(\'Opravdu chcete odstranit tuto postavu?\');">Odstranit</a>
+            </td>
         </tr>
 ';
 
@@ -93,6 +104,7 @@ final class Template_70aaa11219 extends Latte\Runtime\Template
 
 		echo '    </tbody>
 </table>
+
 ';
 	}
 }

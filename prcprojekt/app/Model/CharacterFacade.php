@@ -10,12 +10,43 @@ final class CharacterFacade
     ) {
     }
 
-    // Tato metoda vrací všechny postavy z tabulky 'character'
-    public function getCharacters()
+// Získání jedné postavy podle ID
+public function getCharacter($id)
+{
+    return $this->database
+        ->table('characters')
+        ->get($id);
+}
+
+// Získání všech postav (pro zobrazení seznamu)
+public function getCharacters()
+{
+    return $this->database
+        ->table('characters')
+        ->fetchAll();
+}
+
+// Vytvoření nové postavy
+public function createCharacter(array $data)
+{
+    return $this->database
+        ->table('characters')
+        ->insert($data);
+}
+
+
+    public function deleteCharacter($id): bool
     {
-        return $this->database
-            ->table('characters')  // Pokud máte tabulku pojmenovanou jinak, změňte 'character' na její název
-            ->fetchAll();  // fetchAll() vrátí všechny řádky
+        $character = $this->database
+            ->table('characters')
+            ->get($id);
+
+        if (!$character) {
+            return false; // Postava nebyla nalezena
+        }
+
+        $character->delete();
+        return true; // Postava byla odstraněna
     }
 }
 

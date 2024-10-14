@@ -16,5 +16,19 @@ final class CharacterPresenter extends Presenter
         // Předání seznamu postav do šablony
         $this->template->characters = $this->facade->getCharacters();
     }
-}
 
+    // Metoda pro odstranění postavy
+    public function handleDelete($id): void
+    {
+        // Použijeme facade pro odstranění postavy
+        $result = $this->facade->deleteCharacter($id);
+
+        if (!$result) {
+            $this->flashMessage("Postava nebyla nalezena.", 'error');
+        } else {
+            $this->flashMessage("Postava byla úspěšně odstraněna.", 'success');
+        }
+
+        $this->redirect('Character:default');
+    }
+}
