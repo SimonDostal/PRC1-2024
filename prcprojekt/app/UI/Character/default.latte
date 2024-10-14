@@ -1,5 +1,4 @@
 {block content}
- 
 
 <h1 class="rpg-header">Seznam postav</h1>
 
@@ -19,7 +18,7 @@
     {foreach $characters as $character}
         <tr>
             <td>{$character->id}</td>
-            <td>{$character->name}</td>
+            <td><a href="{$basePath}/inventory/show/{$character->id}">{$character->name}</a></td>
             <td>{$character->race}</td>
             <td>{$character->class}</td>
             <td>{$character->hp}</td>
@@ -29,3 +28,5 @@
     {/foreach}
     </tbody>
 </table>
+
+{/block}
