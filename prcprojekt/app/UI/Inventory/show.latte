@@ -1,0 +1,33 @@
+{block content}
+
+<h1>Inventář postavy {$character->name}</h1>
+
+<h2>Informace o postavě</h2>
+<ul>
+    <li><strong>Jméno:</strong> {$character->name}</li>
+    <li><strong>Rasa:</strong> {$character->race}</li>
+    <li><strong>Třída:</strong> {$character->class}</li>
+    <li><strong>HP:</strong> {$character->hp}</li>
+    <li><strong>Síla:</strong> {$character->strenght}</li>
+    <li><strong>Inteligence:</strong> {$character->intelligence}</li>
+</ul>
+
+<h2>Inventář</h2>
+<table class="table table-dark table-striped rpg-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Předmět</th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $inventory as $item}
+        <tr>
+            <td>{$item->id}</td>
+            <td>{$item->item}</td>
+        </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+{/block}
