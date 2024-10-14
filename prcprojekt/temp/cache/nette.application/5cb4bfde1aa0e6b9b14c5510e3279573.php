@@ -2,11 +2,6 @@
 return array (
   0 => 
   array (
-    'App\\UI\\Inventory\\InventoryPresenter' => 
-    array (
-      0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Inventory/InventoryPresenter.php',
-      1 => 1728908386,
-    ),
     'App\\UI\\Error\\Error5xx\\Error5xxPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Error/Error5xx/Error5xxPresenter.php',
@@ -25,7 +20,7 @@ return array (
     'App\\UI\\Character\\CharacterPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Character/CharacterPresenter.php',
-      1 => 1728907958,
+      1 => 1728908638,
     ),
   ),
   1 => 

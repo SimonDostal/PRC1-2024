@@ -1,22 +1,52 @@
 <?php
-
 namespace App\Model;
 
 use Nette\Database\Explorer;
 
-class CharacterFacade
+final class CharacterFacade
 {
-    private $database;
-
-    public function __construct(Explorer $database)
-    {
-        $this->database = $database;
+    public function __construct(
+        private Explorer $database,
+    ) {
     }
 
-    // Načtení konkrétní postavy podle jejího ID
-    public function getCharacterById($characterId)
+// Získání jedné postavy podle ID
+public function getCharacter($id)
+{
+    return $this->database
+        ->table('characters')
+        ->get($id);
+}
+
+// Získání všech postav (pro zobrazení seznamu)
+public function getCharacters()
+{
+    return $this->database
+        ->table('characters')
+        ->fetchAll();
+}
+
+// Vytvoření nové postavy
+public function createCharacter(array $data)
+{
+    return $this->database
+        ->table('characters')
+        ->insert($data);
+}
+
+
+    public function deleteCharacter($id): bool
     {
-        return $this->database->table('characters')
-            ->get($characterId);
+        $character = $this->database
+            ->table('characters')
+            ->get($id);
+
+        if (!$character) {
+            return false; // Postava nebyla nalezena
+        }
+
+        $character->delete();
+        return true; // Postava byla odstraněna
     }
 }
+
