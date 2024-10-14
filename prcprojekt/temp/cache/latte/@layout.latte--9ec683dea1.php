@@ -36,31 +36,34 @@ final class Template_9ec683dea1 extends Latte\Runtime\Template
 			echo ' | ';
 		}
 		echo 'RPG Character Manager</title>
-   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Google Fonts for RPG Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Link to your custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 12 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 16 */;
 		echo '/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <!-- Epic Title for RPG Website -->
+       <!-- Epic Title with Background -->
+    <div class="epic-title-container">
         <h1 class="epic-title">RPG Character Manager</h1>
-
-    
-       
+    </div>
 
         <!-- Flash messages -->
 ';
-		foreach ($flashes as $flash) /* line 24 */ {
+		foreach ($flashes as $flash) /* line 27 */ {
 			echo '        <div class="alert alert-';
-			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 24 */;
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 27 */;
 			echo '" role="alert">
             ';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 25 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 28 */;
 			echo '
         </div>
 ';
@@ -71,12 +74,25 @@ final class Template_9ec683dea1 extends Latte\Runtime\Template
         <!-- Main content -->
         <main>
 ';
-		$this->renderBlock('content', [], 'html') /* line 30 */;
+		$this->renderBlock('content', [], 'html') /* line 33 */;
 		echo '        </main>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 RPG Character Manager | All rights reserved.</p>
+            <p>
+                Follow us:
+                <a href="https://twitter.com" target="_blank">Twitter</a> |
+                <a href="https://facebook.com" target="_blank">Facebook</a> |
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 34 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 50 */;
 		echo '</body>
 </html>
 ';
@@ -88,7 +104,7 @@ final class Template_9ec683dea1 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '24'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '27'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -96,10 +112,15 @@ final class Template_9ec683dea1 extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 34 */
+	/** {block scripts} on line 50 */
 	public function blockScripts(array $ʟ_args): void
 	{
-		echo '    <!-- Nette Forms Script -->
+		echo '    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Nette Forms Script -->
     <script src="https://unpkg.com/nette-forms@3"></script>
 ';
 	}

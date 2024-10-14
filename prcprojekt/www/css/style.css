@@ -1,29 +1,64 @@
-body {
-    background-image: url('/img/background.png'); /* Cesta k obrázku */
-    background-size: cover; /* Automatické přizpůsobení obrázku velikosti okna */
-    background-position: center; /* Vycentrování obrázku */
-    background-repeat: no-repeat; /* Zabraňuje opakování obrázku */
-    height: 100vh; /* Zajišťuje, že pozadí pokryje celou výšku stránky */
-    margin: 0;
-    font-family: 'Arial', sans-serif; /* Zajišťuje lepší čitelnost textu */
-    color: white;
+/* Epic Title Style */
+.epic-title {
+    font-size: 3em;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(to right, #b22222, #ff8000);
+    border: 3px solid #8b0000;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    letter-spacing: 5px;
+    position: relative; /* Change to relative positioning */
+    z-index: 20; /* Higher z-index to ensure it's above the navbar */
 }
 
 
+
+
+/* Hover effect for character table rows */
+.table tbody tr:hover {
+    background: linear-gradient(to right, #b22222, #ff8000); /* Gradient on hover */
+    color: #ffffff; /* White text color on hover */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+
+/* Set a dark or navy background color */
+body {
+    background-image: url('/img/background.png'); /* Path to the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1a1a1d; /* Fallback solid dark color */
+    color: white;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+/* Container with some padding */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    padding-bottom: 80px; /* Padding to prevent content overlap with footer */
 }
 
+/* Navbar with a transparent dark background */
 .navbar {
-    background-color: #34495e; /* Tmavě modré pozadí menu */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
     padding: 15px;
     border-radius: 5px;
+    position: fixed; /* Fix the navbar at the top */
+    width: 100%;
+    top: 0;
+    z-index: 10; /* Ensures it's above content */
 }
 
 .navbar-brand {
-    color: #f39c12; /* Zlatá barva pro název */
+    color: #f39c12; /* Gold color for branding */
     font-size: 1.5em;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
@@ -34,79 +69,40 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: #ecf0f1; /* Světlejší barva pro odkazy */
+    color: #ecf0f1; /* Light color for links */
     padding: 10px 15px;
     text-decoration: none;
 }
 
-
-
-.alert {
-    margin: 15px 0;
-    padding: 15px;
-    border-radius: 5px;
+/* Footer with transparent background */
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    padding: 20px;
+    color: #ecf0f1;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
 }
 
+.footer-content a {
+    color: #f39c12; /* Gold color for social media links */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+/* Main section with additional padding */
 main {
-    background-color: #34495e; /* Stejné pozadí jako menu */
+    background-color: rgba(50, 56, 62, 0.8); /* Semi-transparent dark navy */
     padding: 20px;
     border-radius: 5px;
-}
-
-
-
-
-table {
-    width: 100%; /* Celá šířka kontejneru */
-    border-collapse: collapse; /* Sloučení okrajů buněk */
-    margin-top: 20px; /* Rozestup nad tabulkou */
-}
-
-thead {
-    background-color: #2980b9; /* Tmavě modré pozadí pro hlavičku tabulky */
-    color: #ecf0f1; /* Světlejší barva pro text v hlavičce */
-    font-weight: bold; /* Tučný text pro hlavičku */
-}
-
-th, td {
-    padding: 12px; /* Vnitřní okraje pro buňky */
-    text-align: center; /* Středění textu */
-    border: 1px solid #34495e; /* Rám kolem buněk */
-}
-
-tbody tr:nth-child(even) {
-    background-color: #34495e; /* Alternující pozadí pro sudé řádky */
-}
-
-tbody tr:hover {
-    background: linear-gradient(to right, #b22222, #ff8000); /* Gradient podobný epic-title */
-    color: #ffffff; /* Bílý text při najetí myší */
-    border-radius: 5px; /* Zaoblené rohy odkazu */
-    padding: 10px 15px; /* Přizpůsobení paddingu, aby se udržela velikost odkazu */
-    transition: background 0.5s ease; /* Plynulý přechod barev */
-}
-
-td {
-    color: #ecf0f1; /* Světlejší barva pro text v buňkách */
-}
-
-
-
-/* Epic Title Style */
-.epic-title {
-    font-size: 3em;
-    color: #ffffff; /* Červená barva s nádechem oranžové */
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 20px;
-    padding: 10px;
-    background: linear-gradient(to right, #b22222, #ff8000); /* Epický barevný přechod */
-    border: 3px solid #8b0000; /* Silný okraj pro dramatický efekt */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7); /* Stín pro hloubku */
-    letter-spacing: 5px; /* Větší mezery mezi písmeny */
+    margin-top: 80px; /* Space from navbar */
 }
 
 * {
-    font-family: 'Cinzel', serif; /* Elegantní fantasy styl písma */
+    font-family: 'Cinzel', serif;
 }
-

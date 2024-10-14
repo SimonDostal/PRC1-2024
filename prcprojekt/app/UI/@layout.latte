@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{ifset $title}{include $title|stripHtml} | {/ifset}RPG Character Manager</title>
-   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Google Fonts for RPG Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Link to your custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{$basePath}/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <!-- Epic Title for RPG Website -->
+       <!-- Epic Title with Background -->
+    <div class="epic-title-container">
         <h1 class="epic-title">RPG Character Manager</h1>
-
-    
-       
+    </div>
 
         <!-- Flash messages -->
         <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}" role="alert">
@@ -31,7 +34,25 @@
         </main>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 RPG Character Manager | All rights reserved.</p>
+            <p>
+                Follow us:
+                <a href="https://twitter.com" target="_blank">Twitter</a> |
+                <a href="https://facebook.com" target="_blank">Facebook</a> |
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
     {block scripts}
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <!-- Nette Forms Script -->
     <script src="https://unpkg.com/nette-forms@3"></script>
     {/block}
