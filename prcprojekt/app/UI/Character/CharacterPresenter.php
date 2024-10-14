@@ -17,6 +17,12 @@ final class CharacterPresenter extends Presenter
         $this->template->characters = $this->facade->getCharacters();
     }
 
+    public function renderDetail($id): void
+    {
+        // Předání detailu postavy do šablony
+        $this->template->character = $this->facade->getCharacter($id);
+    }
+
     // Metoda pro odstranění postavy
     public function handleDelete($id): void
     {

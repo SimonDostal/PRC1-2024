@@ -1,0 +1,22 @@
+{block content}
+    <h1 class="rpg-header">Detail postavy</h1>
+
+    {if $character}
+        <div class="character-details">
+            <h2>{$character->name}</h2>
+            <p><strong>Rasa:</strong> {$character->race}</p>
+            <p><strong>Třída:</strong> {$character->class}</p>
+            <p><strong>HP:</strong> {$character->hp}</p>
+            <p><strong>Síla:</strong> {$character->strenght}</p>
+            <p><strong>Inteligence:</strong> {$character->intelligence}</p>
+        </div>
+
+        <!-- Tlačítka pro úpravu nebo odstranění -->
+        <div class="actions">
+            <a n:href="Edit:edit, id => $character->id" class="btn btn-primary">Upravit</a>
+            <a n:href="delete! id => $character->id" class="btn btn-danger" onclick="return confirm('Opravdu chcete odstranit tuto postavu?');">Odstranit</a>
+        </div>
+    {else}
+        <p>Postava nebyla nalezena.</p>
+    {/if}
+{/block}

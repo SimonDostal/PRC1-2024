@@ -68,9 +68,11 @@ final class Template_b150504ea2 extends Latte\Runtime\Template
             <td>';
 			echo LR\Filters::escapeHtmlText($character->id) /* line 21 */;
 			echo '</td>
-            <td>';
+            <td><a href="';
+			echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Character:detail', ['id' => $character->id])) /* line 22 */;
+			echo '">';
 			echo LR\Filters::escapeHtmlText($character->name) /* line 22 */;
-			echo '</td>
+			echo '</a></td> <!-- Odkaz na jméno postavy -->
             <td>';
 			echo LR\Filters::escapeHtmlText($character->race) /* line 23 */;
 			echo '</td>

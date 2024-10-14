@@ -36,10 +36,12 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
 			echo ' | ';
 		}
 		echo 'RPG Character Manager</title>
-    
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+
     <!-- Link to your custom CSS -->
     <link rel="stylesheet" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 10 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 12 */;
 		echo '/css/style.css">
 </head>
 
@@ -48,17 +50,17 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
         <!-- Navigation Menu -->
         <nav class="navbar">
             <a class="navbar-brand" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 17 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 19 */;
 		echo '/">RPG Character Manager</a>
             <ul class="navbar-nav">
                 <li><a class="nav-link" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 19 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 21 */;
 		echo '/character">Postavy</a></li>
                 <li><a class="nav-link" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 20 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 22 */;
 		echo '/inventory">Inventář</a></li>
                 <li><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Edit:create')) /* line 21 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Edit:create')) /* line 23 */;
 		echo '">Nová postava</a></li>
                 
                 
@@ -68,12 +70,12 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
 
         <!-- Flash messages -->
 ';
-		foreach ($flashes as $flash) /* line 29 */ {
+		foreach ($flashes as $flash) /* line 31 */ {
 			echo '        <div class="alert alert-';
-			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 29 */;
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 31 */;
 			echo '" role="alert">
             ';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 30 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 32 */;
 			echo '
         </div>
 ';
@@ -84,12 +86,12 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
         <!-- Main content -->
         <main>
 ';
-		$this->renderBlock('content', [], 'html') /* line 35 */;
+		$this->renderBlock('content', [], 'html') /* line 37 */;
 		echo '        </main>
     </div>
 
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 39 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 41 */;
 		echo '</body>
 </html>
 ';
@@ -101,7 +103,7 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '29'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '31'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -109,7 +111,7 @@ final class Template_ad5d59a50f extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 39 */
+	/** {block scripts} on line 41 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '    <!-- Nette Forms Script -->

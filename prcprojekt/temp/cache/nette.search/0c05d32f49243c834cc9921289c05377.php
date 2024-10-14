@@ -35,7 +35,7 @@ return array (
     'App\\UI\\Character\\CharacterPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Character/CharacterPresenter.php',
-      1 => 1728906666,
+      1 => 1728907958,
     ),
     'App\\Core\\RouterFactory' => 
     array (

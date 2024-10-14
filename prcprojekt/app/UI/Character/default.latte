@@ -19,7 +19,7 @@
     {foreach $characters as $character}
         <tr>
             <td>{$character->id}</td>
-            <td>{$character->name}</td>
+            <td><a n:href="Character:detail, id => $character->id">{$character->name}</a></td> <!-- Odkaz na jméno postavy -->
             <td>{$character->race}</td>
             <td>{$character->class}</td>
             <td>{$character->hp}</td>
