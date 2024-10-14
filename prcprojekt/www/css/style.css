@@ -1,8 +1,14 @@
 body {
-    background-color: #2c3e50; /* Tmavé pozadí */
-    color: #ecf0f1; /* Světlejší barva textu */
-    font-family: 'Garamond', serif; /* Písmo stylizované na fantasy */
+    background-image: url('/img/background.png'); /* Cesta k obrázku */
+    background-size: cover; /* Automatické přizpůsobení obrázku velikosti okna */
+    background-position: center; /* Vycentrování obrázku */
+    background-repeat: no-repeat; /* Zabraňuje opakování obrázku */
+    height: 100vh; /* Zajišťuje, že pozadí pokryje celou výšku stránky */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Zajišťuje lepší čitelnost textu */
+    color: white;
 }
+
 
 .container {
     max-width: 1200px;
@@ -33,10 +39,7 @@ body {
     text-decoration: none;
 }
 
-.navbar-nav .nav-link:hover {
-    background-color: #f39c12; /* Zlaté pozadí při najetí myší */
-    color: #2c3e50; /* Tmavý text při najetí myší */
-}
+
 
 .alert {
     margin: 15px 0;
@@ -76,10 +79,34 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #f39c12; /* Změna pozadí nažloutlé při najetí myší */
-    color: #2c3e50; /* Tmavý text při najetí myší */
+    background: linear-gradient(to right, #b22222, #ff8000); /* Gradient podobný epic-title */
+    color: #ffffff; /* Bílý text při najetí myší */
+    border-radius: 5px; /* Zaoblené rohy odkazu */
+    padding: 10px 15px; /* Přizpůsobení paddingu, aby se udržela velikost odkazu */
+    transition: background 0.5s ease; /* Plynulý přechod barev */
 }
 
 td {
     color: #ecf0f1; /* Světlejší barva pro text v buňkách */
 }
+
+
+
+/* Epic Title Style */
+.epic-title {
+    font-size: 3em;
+    color: #ffffff; /* Červená barva s nádechem oranžové */
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(to right, #b22222, #ff8000); /* Epický barevný přechod */
+    border: 3px solid #8b0000; /* Silný okraj pro dramatický efekt */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7); /* Stín pro hloubku */
+    letter-spacing: 5px; /* Větší mezery mezi písmeny */
+}
+
+* {
+    font-family: 'Cinzel', serif; /* Elegantní fantasy styl písma */
+}
+
