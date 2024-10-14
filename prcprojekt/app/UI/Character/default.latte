@@ -12,6 +12,7 @@
             <th>HP</th>
             <th>Síla</th>
             <th>Inteligence</th>
+            <th>Akce</th> <!-- Sloupec pro akce, jako je odstranění -->
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,13 @@
             <td>{$character->hp}</td>
             <td>{$character->strenght}</td>
             <td>{$character->intelligence}</td>
+            <td>
+                <!-- Tlačítko pro úpravu -->
+                <a n:href="Edit:create, id => $character->id" class="btn btn-primary">Upravit</a>
+                
+                <!-- Tlačítko pro odstranění s použitím signálu handleDelete -->
+                <a n:href="delete! id => $character->id" class="btn btn-danger" onclick="return confirm('Opravdu chcete odstranit tuto postavu?');">Odstranit</a>
+            </td>
         </tr>
     {/foreach}
     </tbody>
