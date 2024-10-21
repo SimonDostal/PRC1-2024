@@ -73,3 +73,51 @@ main {
 * {
     font-family: 'Cinzel', serif;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .epic-title {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 992px) {
+    .epic-title {
+        font-size: 2em;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .epic-title {
+        font-size: 1.8em;
+        padding: 8px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    main {
+        padding: 15px;
+        margin-top: 60px; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .epic-title {
+        font-size: 1.5em;
+        padding: 6px;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
