@@ -2,10 +2,10 @@
 
 use Latte\Runtime as LR;
 
-/** source: /root/PRC1-2024-2/prcprojekt/app/UI/Character/detail.latte */
-final class Template_8c7fb5915e extends Latte\Runtime\Template
+/** source: /home/marinakt/PRC1-2024-7/prcprojekt/app/UI/Character/detail.latte */
+final class Template_24c9ec7d44 extends Latte\Runtime\Template
 {
-	public const Source = '/root/PRC1-2024-2/prcprojekt/app/UI/Character/detail.latte';
+	public const Source = '/home/marinakt/PRC1-2024-7/prcprojekt/app/UI/Character/detail.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent'],
