@@ -10,12 +10,9 @@
     border: 3px solid #8b0000;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
     letter-spacing: 5px;
-    position: relative; /* Change to relative positioning */
-    z-index: 20; /* Higher z-index to ensure it's above the navbar */
+    position: relative;
+    z-index: 20;
 }
-
-
-
 
 /* Hover effect for character table rows */
 .table tbody tr:hover {
@@ -23,7 +20,6 @@
     color: #ffffff; /* White text color on hover */
     transition: background 0.3s ease; /* Smooth transition */
 }
-
 
 /* Set a dark or navy background color */
 body {
@@ -33,7 +29,6 @@ body {
     background-repeat: no-repeat;
     background-color: #1a1a1d; /* Fallback solid dark color */
     color: white;
-    height: 100vh;
     margin: 0;
     font-family: 'Cinzel', serif;
 }
@@ -46,42 +41,13 @@ body {
     padding-bottom: 80px; /* Padding to prevent content overlap with footer */
 }
 
-/* Navbar with a transparent dark background */
-.navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-    padding: 15px;
-    border-radius: 5px;
-    position: fixed; /* Fix the navbar at the top */
-    width: 100%;
-    top: 0;
-    z-index: 10; /* Ensures it's above content */
-}
-
-.navbar-brand {
-    color: #f39c12; /* Gold color for branding */
-    font-size: 1.5em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.navbar-nav {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navbar-nav .nav-link {
-    color: #ecf0f1; /* Light color for links */
-    padding: 10px 15px;
-    text-decoration: none;
-}
-
 /* Footer with transparent background */
 footer {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
     padding: 20px;
     color: #ecf0f1;
-    position: fixed;
+    position: relative; /* Make footer part of content flow */
     width: 100%;
-    bottom: 0;
     text-align: center;
 }
 
@@ -103,6 +69,7 @@ main {
     margin-top: 80px; /* Space from navbar */
 }
 
+/* Global font style */
 * {
     font-family: 'Cinzel', serif;
 }
