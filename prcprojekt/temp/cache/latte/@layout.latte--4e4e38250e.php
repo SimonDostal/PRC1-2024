@@ -43,9 +43,13 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+      <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 16 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 20 */;
 		echo '/css/style.css">
 </head>
 
@@ -59,12 +63,12 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
     <div class="container">
         <!-- Flash messages -->
 ';
-		foreach ($flashes as $flash) /* line 28 */ {
+		foreach ($flashes as $flash) /* line 32 */ {
 			echo '        <div class="alert alert-';
-			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 28 */;
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 32 */;
 			echo '" role="alert">
             ';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 29 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 33 */;
 			echo '
         </div>
 ';
@@ -75,7 +79,7 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
         <!-- Main content -->
         <main>
 ';
-		$this->renderBlock('content', [], 'html') /* line 34 */;
+		$this->renderBlock('content', [], 'html') /* line 38 */;
 		echo '        </main>
     </div>
 
@@ -93,7 +97,7 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
     </footer>
 
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 51 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 55 */;
 		echo '</body>
 </html>
 ';
@@ -105,7 +109,7 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '28'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '32'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -113,7 +117,7 @@ final class Template_4e4e38250e extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 51 */
+	/** {block scripts} on line 55 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '    <!-- Bootstrap JS and dependencies -->
