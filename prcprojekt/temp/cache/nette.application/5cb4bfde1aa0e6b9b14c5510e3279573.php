@@ -15,12 +15,12 @@ return array (
     'App\\UI\\Edit\\EditPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Edit/EditPresenter.php',
-      1 => 1728907092,
+      1 => 1729510661,
     ),
     'App\\UI\\Character\\CharacterPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Character/CharacterPresenter.php',
-      1 => 1728908638,
+      1 => 1729510179,
     ),
   ),
   1 => 

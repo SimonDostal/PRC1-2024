@@ -5,7 +5,7 @@ return array (
     'App\\Model\\CharacterFacade' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/Model/CharacterFacade.php',
-      1 => 1728908689,
+      1 => 1729510505,
     ),
     'App\\Bootstrap' => 
     array (
@@ -25,7 +25,7 @@ return array (
     'App\\UI\\Edit\\EditPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Edit/EditPresenter.php',
-      1 => 1728907092,
+      1 => 1729510661,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -35,7 +35,7 @@ return array (
     'App\\UI\\Character\\CharacterPresenter' => 
     array (
       0 => '/root/PRC1-2024-2/prcprojekt/app/UI/Character/CharacterPresenter.php',
-      1 => 1728908638,
+      1 => 1729510179,
     ),
     'App\\Core\\RouterFactory' => 
     array (

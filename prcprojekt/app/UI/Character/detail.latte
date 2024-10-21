@@ -11,9 +11,23 @@
             <p><strong>Inteligence:</strong> {$character->intelligence}</p>
         </div>
 
+        <!-- Inventář -->
+        <div class="inventory">
+            <h3>Inventář</h3>
+            {if $items}
+                <ul>
+                    {foreach $items as $item}
+                        <li>{$item->item}</li> <!-- Předpokládám, že sloupec s názvem předmětu je 'item' -->
+                    {/foreach}
+                </ul>
+            {else}
+                <p>Postava nemá žádné předměty v inventáři.</p>
+            {/if}
+        </div>
+
         <!-- Tlačítka pro úpravu nebo odstranění -->
         <div class="actions">
-            <a n:href="Edit:edit, id => $character->id" class="btn btn-primary">Upravit</a>
+            <a n:href="Edit:create, id => $character->id" class="btn btn-primary">Upravit</a>
             <a n:href="delete! id => $character->id" class="btn btn-danger" onclick="return confirm('Opravdu chcete odstranit tuto postavu?');">Odstranit</a>
         </div>
     {else}
