@@ -8,9 +8,22 @@ use App\Model\CharacterFacade;
 final class EditPresenter extends Nette\Application\UI\Presenter
 {
     public function __construct(
-        private CharacterFacade $facade, // Přidejte $facade jako parametr konstruktoru
-        private Nette\Database\Explorer $database, // Taktéž neodstraňte existující databázovou instanci
+        private CharacterFacade $facade,
+        private Nette\Database\Explorer $database,
     ) {
+    }
+
+    public function renderCreate(int $id = null): void
+    {
+        if ($id) {
+            // Pokud je ID předáno, pokusíme se načíst postavu
+            $character = $this->facade->getCharacter($id);
+            if (!$character) {
+                $this->flashMessage("Postava nebyla nalezena.", 'error');
+                $this->redirect('Character:default');
+            }
+            $this->template->character = $character; // Předáme postavu do šablony
+        }
     }
 
     protected function createComponentCharacterForm(): Form
@@ -40,32 +53,26 @@ final class EditPresenter extends Nette\Application\UI\Presenter
         $form->addSubmit('send', 'Uložit');
         $form->onSuccess[] = [$this, 'CharacterFormSucceeded'];
 
-        // Pokud jde o úpravu postavy (existuje ID), předvyplníme formulář
+        // Předvyplnění formuláře, pokud jde o úpravu
         $id = $this->getParameter('id');
         if ($id) {
             $character = $this->facade->getCharacter($id);
             if ($character) {
-                $form->setDefaults($character->toArray()); // Předvyplnění formuláře daty postavy
+                $form->setDefaults($character->toArray());
             }
         }
 
         return $form;
     }
 
-    // Metoda pro zpracování formuláře
     public function CharacterFormSucceeded(Form $form, array $data): void
     {
-        $id = $this->getParameter('id'); // Získáme ID postavy, pokud jde o úpravu
+        $id = $this->getParameter('id');
 
         if ($id) {
             // Úprava postavy
-            $character = $this->facade->getCharacter($id);
-            if ($character) {
-                $character->update($data);
-                $this->flashMessage("Postava byla úspěšně upravena.", 'success');
-            } else {
-                $this->flashMessage("Postava nebyla nalezena.", 'error');
-            }
+            $this->facade->updateCharacter($id, $data);
+            $this->flashMessage("Postava byla úspěšně upravena.", 'success');
         } else {
             // Přidání nové postavy
             $this->facade->createCharacter($data);

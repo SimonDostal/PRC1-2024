@@ -19,9 +19,24 @@ final class CharacterPresenter extends Presenter
 
     public function renderDetail($id): void
     {
-        // Předání detailu postavy do šablony
-        $this->template->character = $this->facade->getCharacter($id);
+        // Získání postavy podle ID
+        $character = $this->facade->getCharacter($id);
+        
+        if (!$character) {
+            $this->flashMessage("Postava nebyla nalezena.", 'error');
+            $this->redirect('Character:default');
+        }
+    
+        // Získání inventáře pro danou postavu
+        $items = $this->facade->getItemsForCharacter($id);
+        
+        // Předání postavy a jejího inventáře do šablony
+        $this->template->character = $character;
+        $this->template->items = $items; // Předáme seznam předmětů do šablony
     }
+    
+
+    
 
     // Metoda pro odstranění postavy
     public function handleDelete($id): void
@@ -38,3 +53,5 @@ final class CharacterPresenter extends Presenter
         $this->redirect('Character:default');
     }
 }
+
+ 

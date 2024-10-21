@@ -13,7 +13,7 @@
 
         <!-- Tlačítka pro úpravu nebo odstranění -->
         <div class="actions">
-            <a n:href="Edit:edit, id => $character->id" class="btn btn-primary">Upravit</a>
+            <a n:href="Edit:create, id => $character->id" class="btn btn-primary">Upravit</a>
             <a n:href="delete! id => $character->id" class="btn btn-danger" onclick="return confirm('Opravdu chcete odstranit tuto postavu?');">Odstranit</a>
         </div>
     {else}

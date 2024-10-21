@@ -48,5 +48,20 @@ public function createCharacter(array $data)
         $character->delete();
         return true; // Postava byla odstraněna
     }
+    public function getItemsForCharacter(int $characterId)
+    {
+        return $this->database
+            ->table('inventory') // Předpokládáme, že tabulka se jmenuje 'inventory'
+            ->where('character_id', $characterId)
+            ->fetchAll(); // Načteme všechny předměty pro danou postavu
+    }
+    public function updateCharacter($id, array $data)
+{
+    $this->database
+        ->table('characters')
+        ->where('id', $id)
+        ->update($data); // Aktualizace existujícího záznamu
+}
+
 }
 
