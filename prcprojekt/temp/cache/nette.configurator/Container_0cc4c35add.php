@@ -1,14 +1,14 @@
 <?php
-// source: /root/PRC1-2024-2/prcprojekt/config/common.neon
-// source: /root/PRC1-2024-2/prcprojekt/config/services.neon
-// source: /root/PRC1-2024-2/prcprojekt/config/local.neon
+// source: /home/hnatek/PRC1-2024-3/prcprojekt/config/common.neon
+// source: /home/hnatek/PRC1-2024-3/prcprojekt/config/services.neon
+// source: /home/hnatek/PRC1-2024-3/prcprojekt/config/local.neon
 // source: array
 
 /** @noinspection PhpParamsInspection,PhpMethodMayBeStaticInspection */
 
 declare(strict_types=1);
 
-class Container_27e093f812 extends Nette\DI\Container
+class Container_0cc4c35add extends Nette\DI\Container
 {
 	protected array $tags = [
 		'nette.inject' => [
@@ -218,7 +218,7 @@ class Container_27e093f812 extends Nette\DI\Container
 		$service = new Nette\Application\PresenterFactory(new Nette\Bridges\ApplicationDI\PresenterFactoryCallback(
 			$this,
 			5,
-			'/root/PRC1-2024-2/prcprojekt/temp/cache/nette.application/touch',
+			'/home/hnatek/PRC1-2024-3/prcprojekt/temp/cache/nette.application/touch',
 		));
 		$service->setMapping(['*' => 'App\UI\*\**Presenter']);
 		return $service;
@@ -227,7 +227,7 @@ class Container_27e093f812 extends Nette\DI\Container
 
 	public function createServiceCache__storage(): Nette\Caching\Storage
 	{
-		return new Nette\Caching\Storages\FileStorage('/root/PRC1-2024-2/prcprojekt/temp/cache');
+		return new Nette\Caching\Storages\FileStorage('/home/hnatek/PRC1-2024-3/prcprojekt/temp/cache');
 	}
 
 
@@ -306,7 +306,7 @@ class Container_27e093f812 extends Nette\DI\Container
 	{
 		return new class ($this) implements Nette\Bridges\ApplicationLatte\LatteFactory {
 			public function __construct(
-				private Container_27e093f812 $container,
+				private Container_0cc4c35add $container,
 			) {
 			}
 
@@ -314,7 +314,7 @@ class Container_27e093f812 extends Nette\DI\Container
 			public function create(): Latte\Engine
 			{
 				$service = new Latte\Engine;
-				$service->setTempDirectory('/root/PRC1-2024-2/prcprojekt/temp/cache/latte');
+				$service->setTempDirectory('/home/hnatek/PRC1-2024-3/prcprojekt/temp/cache/latte');
 				$service->setAutoRefresh(true);
 				$service->setStrictTypes(false);
 				$service->setStrictParsing(false);
@@ -432,14 +432,14 @@ class Container_27e093f812 extends Nette\DI\Container
 	protected function getStaticParameters(): array
 	{
 		return [
-			'appDir' => '/root/PRC1-2024-2/prcprojekt/app',
-			'wwwDir' => '/root/PRC1-2024-2/prcprojekt/www',
-			'vendorDir' => '/root/PRC1-2024-2/prcprojekt/vendor',
-			'rootDir' => '/root/PRC1-2024-2/prcprojekt',
+			'appDir' => '/home/hnatek/PRC1-2024-3/prcprojekt/app',
+			'wwwDir' => '/home/hnatek/PRC1-2024-3/prcprojekt/www',
+			'vendorDir' => '/home/hnatek/PRC1-2024-3/prcprojekt/vendor',
+			'rootDir' => '/home/hnatek/PRC1-2024-3/prcprojekt',
 			'debugMode' => true,
 			'productionMode' => false,
 			'consoleMode' => false,
-			'tempDir' => '/root/PRC1-2024-2/prcprojekt/temp',
+			'tempDir' => '/home/hnatek/PRC1-2024-3/prcprojekt/temp',
 		];
 	}
 }

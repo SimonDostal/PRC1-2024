@@ -53,3 +53,5 @@ final class CharacterPresenter extends Presenter
         $this->redirect('Character:default');
     }
 }
+
+ 

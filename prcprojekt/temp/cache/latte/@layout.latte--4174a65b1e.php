@@ -2,10 +2,10 @@
 
 use Latte\Runtime as LR;
 
-/** source: /root/PRC1-2024-2/prcprojekt/app/UI/@layout.latte */
-final class Template_ad5d59a50f extends Latte\Runtime\Template
+/** source: /home/hnatek/PRC1-2024-3/prcprojekt/app/UI/@layout.latte */
+final class Template_4174a65b1e extends Latte\Runtime\Template
 {
-	public const Source = '/root/PRC1-2024-2/prcprojekt/app/UI/@layout.latte';
+	public const Source = '/home/hnatek/PRC1-2024-3/prcprojekt/app/UI/@layout.latte';
 
 	public const Blocks = [
 		['scripts' => 'blockScripts'],
